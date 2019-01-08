@@ -40,4 +40,16 @@ public:
     virtual void Sort() override;
 };
 
+/**
+ * @brief 冒泡排序
+ * 
+ */
+class BubbleSort : public ISort
+{
+public:
+    BubbleSort (int * arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
+                : ISort(arrToSort, nSize, "BubbleSort", nMode) {}
+    virtual void Sort() override;
+};
+
 #endif

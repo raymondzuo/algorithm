@@ -26,3 +26,19 @@ void InsertionSort::Sort()
         }
     }
 }
+
+void BubbleSort::Sort()
+{
+    for(int i = 0; i < nSortDataSize; i++)
+    {
+        int nTmp = arrSortData[i];
+        for(int j = i + 1; j < nSortDataSize; j++)
+        {
+            if(nTmp > arrSortData[j]) 
+            {
+                arrSortData[i] = arrSortData[j]; 
+                arrSortData[j] = nTmp;
+            }
+        }
+    }
+}
