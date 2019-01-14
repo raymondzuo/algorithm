@@ -42,3 +42,40 @@ void BubbleSort::Sort()
         }
     }
 }
+
+/*********************
+ * QUICK SORT
+ * *******************/
+void QuickSort::Sort()
+{
+    QuickSortRecurse(0, nSortDataSize - 1);
+}
+
+int QuickSort::QuickSortRecurse(int nBegin, int nEnd)
+{
+    if(nBegin < nEnd)
+    {
+        int mid = PartitionSort(nBegin, nEnd);
+        QuickSortRecurse(nBegin, mid - 1);
+        QuickSortRecurse(mid + 1, nEnd);
+    }
+}
+
+int QuickSort::PartitionSort(int nBegin, int nEnd)
+{
+    int nPivot = arrSortData[nEnd];
+    int i = nBegin; 
+
+    for(int j = nBegin; j < nEnd; j++)
+    {
+        if(arrSortData[j] < nPivot)
+        {
+            Swap(arrSortData[i], arrSortData[j]);
+            i++;
+        }
+    }
+
+    Swap(arrSortData[i], arrSortData[nEnd]);
+    return i;
+}
+/********************/

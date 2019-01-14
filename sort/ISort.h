@@ -22,6 +22,20 @@ protected:
     size_t  nSortDataSize; //排序数据的大小
     std::string strSortName; //排序的类别
 
+protected:
+    /**
+     * @brief 交换两个数字
+     * 
+     * @param a 
+     * @param b 
+     */
+    void Swap(int& a, int &b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    };
+
 public:
     ISort(int * arrToSort, size_t nSize, const std::string& strSn, SortMode nMode = SortMode::Asc);
     virtual void Sort() = 0;
@@ -47,9 +61,25 @@ public:
 class BubbleSort : public ISort
 {
 public:
-    BubbleSort (int * arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
+    BubbleSort(int * arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
                 : ISort(arrToSort, nSize, "BubbleSort", nMode) {}
     virtual void Sort() override;
+};
+
+/**
+ * @brief 快速排序
+ * 
+ */
+class QuickSort : public ISort
+{
+public:
+    QuickSort(int * arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
+                : ISort(arrToSort, nSize, "QuickSort", nMode) {}
+    virtual void Sort() override;
+
+private:
+    int QuickSortRecurse(int nBegin, int nEnd);
+    int PartitionSort(int nBegin, int nEnd);
 };
 
 #endif
