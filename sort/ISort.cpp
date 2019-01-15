@@ -55,20 +55,20 @@ int QuickSort::QuickSortRecurse(int nBegin, int nEnd)
 {
     if(nBegin < nEnd)
     {
-        int mid = PartitionSort(nBegin, nEnd);
+        int mid = Partition(nBegin, nEnd);
         QuickSortRecurse(nBegin, mid - 1);
         QuickSortRecurse(mid + 1, nEnd);
     }
 }
 
-int QuickSort::PartitionSort(int nBegin, int nEnd)
+int QuickSort::Partition(int nBegin, int nEnd)
 {
     int nPivot = arrSortData[nEnd];
     int i = nBegin; 
 
     for(int j = nBegin; j < nEnd; j++)
     {
-        if(arrSortData[j] < nPivot)
+        if(arrSortData[j] <= nPivot)
         {
             Swap(arrSortData[i], arrSortData[j]);
             i++;

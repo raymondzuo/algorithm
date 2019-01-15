@@ -79,7 +79,7 @@ public:
 
 private:
     int QuickSortRecurse(int nBegin, int nEnd);
-    int PartitionSort(int nBegin, int nEnd);
+    int Partition(int nBegin, int nEnd);
 };
 
 #endif
