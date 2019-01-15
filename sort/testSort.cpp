@@ -13,8 +13,11 @@ int main()
     /*BubbleSort bubbleSt(arr, SIZE);
     bubbleSt.Sort();*/
 
-    QuickSort quickSt(arr, SIZE);
-    quickSt.Sort();
+    /*QuickSort quickSt(arr, SIZE);
+    quickSt.Sort();*/
+
+    MergeSort mergeSort(arr, SIZE);
+    mergeSort.Sort();
     
     for(size_t i = 0; i < SIZE; i++)
     {

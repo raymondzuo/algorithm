@@ -79,3 +79,70 @@ int QuickSort::Partition(int nBegin, int nEnd)
     return i;
 }
 /********************/
+
+/*********************
+ * MERGE SORT
+ * *******************/
+void MergeSort::Sort()
+{
+    MergePaition(0, nSortDataSize - 1);
+}
+
+void MergeSort::MergePaition(int nBegin, int nEnd)
+{
+    if(nBegin < nEnd)
+    {
+        int nMid = (nEnd + nBegin) / 2;
+        MergePaition(nBegin, nMid);//递归分割,直至最小个数1
+        MergePaition(nMid + 1, nEnd);
+
+        Merge(nBegin, nMid, nEnd);
+    }
+}
+
+void MergeSort::Merge(int nBegin, int nMid, int nEnd)
+{
+    int i,j,k;
+    int lengthLeft = nMid - nBegin + 1;
+    int lengthRight = nEnd - nMid;
+    int left[lengthLeft], right[lengthRight];
+    for(i = 0; i < lengthLeft;i++)
+    {
+        left[i] = arrSortData[nBegin + i];
+    }
+    for(j = 0; j < lengthRight;j++)
+    {
+        right[j] = arrSortData[nMid + 1 + j];
+    }
+
+    i = 0, j = 0, k = nBegin; 
+    while(i < lengthLeft && j < lengthRight)
+    {
+        if(left[i] <= right[j])
+        {
+            arrSortData[k] = left[i];
+            i++;
+        }
+        else
+        {
+            arrSortData[k] = right[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while(i < lengthLeft)
+    {
+        arrSortData[k] = left[i];
+        i++;
+        k++;
+    }
+    while(j < lengthRight)
+    {
+        arrSortData[k] = right[j];
+        j++;
+        k++;
+    }
+}
+/********************/

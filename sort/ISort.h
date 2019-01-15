@@ -82,4 +82,19 @@ private:
     int Partition(int nBegin, int nEnd);
 };
 
+/**
+ * @brief 归并排序
+ * 
+ */
+class MergeSort : public ISort
+{
+public:
+    MergeSort(int * arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
+                : ISort(arrToSort, nSize, "MergeSort", nMode) {}
+    virtual void Sort() override;
+
+private:
+    void MergePaition(int nBegin, int nEnd);
+    void Merge(int nBegin, int nMid, int nEnd);
+};
 #endif
