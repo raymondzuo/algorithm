@@ -85,16 +85,16 @@ int QuickSort::Partition(int nBegin, int nEnd)
  * *******************/
 void MergeSort::Sort()
 {
-    MergePaition(0, nSortDataSize - 1);
+    MergePartition(0, nSortDataSize - 1);
 }
 
-void MergeSort::MergePaition(int nBegin, int nEnd)
+void MergeSort::MergePartition(int nBegin, int nEnd)
 {
     if(nBegin < nEnd)
     {
         int nMid = (nEnd + nBegin) / 2;
-        MergePaition(nBegin, nMid);//递归分割,直至最小个数1
-        MergePaition(nMid + 1, nEnd);
+        MergePartition(nBegin, nMid);//递归分割,直至最小个数1
+        MergePartition(nMid + 1, nEnd);
 
         Merge(nBegin, nMid, nEnd);
     }

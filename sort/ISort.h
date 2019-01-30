@@ -94,7 +94,7 @@ public:
     virtual void Sort() override;
 
 private:
-    void MergePaition(int nBegin, int nEnd);
+    void MergePartition(int nBegin, int nEnd);
     void Merge(int nBegin, int nMid, int nEnd);
 };
 #endif
