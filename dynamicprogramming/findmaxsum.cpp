@@ -33,6 +33,22 @@ int maxsum(int i, int j)
     return dp[i][j];
 }
 
+int maxsumBottomToTop(int i, int j)
+{
+    for(int i = 1; i <= MAX; i++)
+        dp[MAX][i] = input[MAX][i];
+    
+    for(int i = MAX - 1; i > 0; i--)
+    {
+        for(int j = 1; j <= i; j++)
+        {
+            dp[i][j] = std::max(dp[i+1][j], dp[i+1][j+1]) + input[i][j];
+        }
+    }
+
+    return dp[i][j];
+}
+
 int main()
 {
     int i,j;      
@@ -41,5 +57,6 @@ int main()
             cin >> input[i][j];         
             dp[i][j] = -1;     
         }      
-    cout << maxsum(1,1) << std::endl;  
+    //cout << maxsum(1,1) << std::endl;  
+    cout << maxsumBottomToTop(1,1) << std::endl;  
 }
