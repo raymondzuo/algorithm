@@ -16,8 +16,10 @@ int main()
     /*QuickSort quickSt(arr, SIZE);
     quickSt.Sort();*/
 
-    MergeSort mergeSort(arr, SIZE);
-    mergeSort.Sort();
+    /*MergeSort mergeSort(arr, SIZE);
+    mergeSort.Sort();*/
+    HeapSort heapSort(arr, SIZE);
+    heapSort.Sort();
     
     for(size_t i = 0; i < SIZE; i++)
     {

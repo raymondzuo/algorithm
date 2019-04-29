@@ -146,3 +146,42 @@ void MergeSort::Merge(int nBegin, int nMid, int nEnd)
     }
 }
 /********************/
+//以最大堆为例子,从小到达排列
+void HeapSort::Heapify(int start, int end)
+{
+    int temp = arrSortData[start];
+    int j = 2 * start + 1;
+
+    while(j < end)
+    {
+        if(j + 1 < end && arrSortData[j + 1] > arrSortData[j])
+            j++;
+        if(arrSortData[j] <= temp) //无需调整
+            break;
+
+        //交换父子节点
+        arrSortData[start] = arrSortData[j];
+        arrSortData[j] = temp;
+
+        start = j;
+        j = 2 * start + 1;//继续堆化
+    }
+}
+
+void HeapSort::Sort()
+{
+    int i, temp;
+
+    //因为从nSortDataSize / 2 开始的所有数字,已经是叶节点,叶节点无需调整
+    for(i = nSortDataSize / 2 - 1; i >= 0; i--)
+        Heapify(i, nSortDataSize - 1);
+    
+    //拿取最大堆的堆顶元素,与最后一位数字进行交换,从而实习堆排序
+    for(i = nSortDataSize - 1; i > 0; i--)
+    {
+        Swap(arrSortData[0], arrSortData[i]);
+        //交换后继续堆化
+        Heapify(0, i - 1);
+    }
+}
+/********************/

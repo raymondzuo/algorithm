@@ -97,4 +97,16 @@ private:
     void MergePartition(int nBegin, int nEnd);
     void Merge(int nBegin, int nMid, int nEnd);
 };
+
+class HeapSort : public ISort
+{
+public:
+    HeapSort(int *arrToSort, size_t nSize, SortMode nMode = SortMode::Asc) 
+        : ISort(arrToSort, nSize, "HeapSort", nMode)
+    {
+    }
+    virtual void Sort() override;
+private:
+    void Heapify(int start, int end);
+};
 #endif
